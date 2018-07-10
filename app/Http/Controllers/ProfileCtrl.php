@@ -173,7 +173,7 @@ class ProfileCtrl extends Controller
     public function visitors()
     {
         $visitors = Visitor::where(['user_to'=>Auth::user()->id]);
-        dd($visitors);
+        //dd($visitors);
     	return view('profile.visitors', ['tap_title'=>'Visitors','visitors'=>$visitors]);
     }
 
@@ -182,7 +182,8 @@ class ProfileCtrl extends Controller
         $all_likes = Like::where('object_type',User::class)
         ->where('user_id',Auth::user()->id)
         ->orWhere('object_id',Auth::user()->id)->get();
-        dd($all_likes);
+        //dd($all_likes);
+        return view('profile.likes',['likes'=>$all_likes]);
     }
 
     public function edit()

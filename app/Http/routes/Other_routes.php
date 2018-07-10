@@ -81,7 +81,6 @@ Route::post('/sendemailactivation', [
     'name'  => 'sendemailactivation',
     'as'    => 'sendemailactivation',
     'uses'  => function(){
-        use Pheaks\Http\Libraries\Flash;
         if(Auth::user()->status==0){
             if(Auth::user()->email!="") {
                 try {
